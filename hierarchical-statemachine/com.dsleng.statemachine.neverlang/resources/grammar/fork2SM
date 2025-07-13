@@ -1,0 +1,19 @@
+statechart Test1 {
+    State: S1 initial;
+    State: S2;
+    State: S3 final;
+    State: S5;
+    State: S6 final;
+    ForkState: S4 {
+       Fork: Transition{t4,g1,e1};
+       Left: Transition(S5){t5,g1,e1};
+       Right: Transition(S6){t6,g1,e1};
+    };
+    Transition(S1,S2){t1,g1,e1};
+    Transition(S2,S3){t2,g1,e1};
+    Transition(S2,S4){t3,g1,e1};
+}
+UseCases {
+    PS1 {t1,t2,t3}
+    PS2 {t1,t3,(t4,t5,t7)}
+}
